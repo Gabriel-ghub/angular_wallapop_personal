@@ -1,0 +1,26 @@
+<div class="container">
+    <div class="row" *ngIf="post">
+        <div class="col-6">
+            <h2>Detalles de la publicacion</h2>
+            <div class="border mt-2">
+                <h5>Titulo</h5>
+                <p>{{post.titulo}}</p>
+            </div>
+            <div class="border mt-2">
+                <h5>Descripcion</h5>
+                <p>{{post.description}}</p>
+            </div>
+            <div class="border mt-2">
+                <h5>Precio</h5>
+                <p>{{post.price}}</p>
+            </div>
+        </div>
+        <div class="col-6">
+            <h5>Imagen asociada</h5>
+                <img src="http://localhost:8000/img/posts/{{post.image}}" class="card-img-top" alt="...">        </div>
+    </div>
+    
+    <div *ngIf="isSending" class="spinner-border text-danger" role="status">
+        <span class="visually-hidden">Loading...</span>
+    </div>
+</div>

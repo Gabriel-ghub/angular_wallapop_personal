@@ -1,0 +1,18 @@
+<div *ngIf="isAuthenticated()" class="col-12 col-md-4 order-1 order-md-2">
+    <a class="btn btn-primary" routerLink="/create">Crear publicación</a>
+</div>
+<section>
+    <div class="container d-flex flex-wrap">
+        <div *ngIf="posts.length > 0" class="results  d-flex gap-4 justify-content-center flex-wrap col-12 col-md-10">
+            <div  *ngFor="let post of posts" class="card" style="width: 18rem;">
+                <img src="http://localhost:8000/img/posts/{{post.image}}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <h6 class="card-text">{{post.description}}</h6>
+                    <p class="card-text">{{post.price}}</p>
+            <button class="btn btn-primary text-dark" routerLink="/post/{{post.id}}">Ver</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

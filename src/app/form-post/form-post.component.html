@@ -1,0 +1,29 @@
+<div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+<form (ngSubmit)="enviarFormulario()"  [formGroup]="formulario" enctype="multipart/form-data">
+    <div class="form-group">    
+        <label for="titulo">Título</label>
+        <input type="text" class="form-control" id="titulo" name="titulo" formControlName="titulo" required>
+    </div>
+    <div class="form-group">
+        <label for="descripcion">Descripción</label>
+        <textarea class="form-control" id="descripcion" name="descripcion"  formControlName="descripcion"
+            required></textarea>
+    </div>
+    <div class="form-group">
+        <label for="price">Precio</label>
+        <input type="text" class="form-control" id="price" name="price"  formControlName="price"
+            required>
+    </div>
+    <div class="form-group mb-4">
+        <label for="">Categoria</label>
+        <select name="category_id" class="form-select"  formControlName="category_id">
+            <option value="1">Coches</option>
+            <option value="2">Muebles</option>
+        </select>
+    </div>
+    <div class="mb-3">
+        <label for="formFile" class="form-label">Default image input example</label>
+        <input name="image" class="form-control" type="file" id="formFile" formControlName="image" (change)=onFileSelected($event)/>
+    </div>
+    <button type="submit" class="btn btn-primary">Enviar</button>
+</form>

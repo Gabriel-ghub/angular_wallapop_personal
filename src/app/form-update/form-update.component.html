@@ -1,0 +1,35 @@
+<div class="container position-relative">
+    <div [ngClass]="{'d-block': success, 'd-none': !success}"
+        class="position-absolute top-50 start-50 translate-middle transition">
+        <div class="card d-flex flex-column align-items-center justify-content-center" style="width: 18rem;">
+            <h1>Post actualizada con éxito!</h1>
+            <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="green" class="bi bi-check-lg"
+                viewBox="0 0 16 16">
+                <path
+                    d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425a.247.247 0 0 1 .02-.022Z" />
+            </svg>
+        </div>
+    </div>
+    <div class="row" *ngIf="post">
+        <div class="col-6">
+            <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>
+            <form (ngSubmit)="handleSubmit()" class="col-12 mt-5 shadow-lg p-3 mx-auto form">
+                <label for="" class="form-label">Titulo</label>
+                <input type="text" [(ngModel)]="post.title" name="title" required="required" class="form-control">
+                <label for="" class="form-label">Descripcion</label>
+                <textarea type="text" [(ngModel)]="post.description" name="descripcion" required="required"
+                    class="form-control"></textarea>
+                <label for="" class="form-label">Precio</label>
+                <input type="text" [(ngModel)]="post.price" name="price" required="required"
+                    class="form-control">
+                <div *ngIf="isSending" class="spinner-border text-danger" role="status">
+                    <span class="visually-hidden">Loading...</span>
+                </div>
+                <button *ngIf="!isSending" type="submit" class="btn btn-primary">Actualizar</button>
+            </form>
+        </div>
+        <div class="col-6">
+            <img width="400px" src="http://localhost:8000/img/posts/{{post.image}}" alt="">
+        </div>
+    </div>
+</div>

@@ -1,0 +1,10 @@
+<form class="col-12 col-md-6 mt-5 p-3 shadow-lg mx-auto">
+    <label for="" class="form-label">Nombre</label>
+    <input type="text" [(ngModel)]="name" name="name" placeholder="Nombre" required="required" class="form-control">
+    <label for="" class="form-label">Email</label>
+    <input type="email" [(ngModel)]="email" name="email" placeholder="Email" required="required" class="form-control">
+    <label for="" class="form-label">Contraseña</label>
+    <input type="password" [(ngModel)]="password" name="password" placeholder="Password" required="required"
+        class="form-control">
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Ingresar</button>
+</form>
